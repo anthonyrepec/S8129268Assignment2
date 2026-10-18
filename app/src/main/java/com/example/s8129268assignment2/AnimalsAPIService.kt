@@ -12,23 +12,9 @@ interface AnimalsAPIService {
     @POST("footscray/auth")
     suspend fun submitLoginDetails(@Body body: LoginRequest): Response<LoginResponse>
 
+
+
     @GET("dashboard/{keypass}")
     suspend fun getDashboard(@Path("keypass") keypass: String): Response<DashboardResponse>
 
-    //GET request to retrieve the list of animals and the total number
-    data class DashboardResponse(
-        val entities: List<Entity>,
-        val entityTotal: Int
-    )
-
-    //GET request to retrieve the details of a particular animal
-    data class Entity(
-        val species: String,
-        val scientificName: String,
-        val habitat: String,
-        val diet: String,
-        val conservationStatus: String,
-        val averageLifespan: Int,
-        val description: String
-    )
 }
