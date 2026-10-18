@@ -1,8 +1,9 @@
 package com.example.s8129268assignment2
 
 import retrofit2.Response
+import javax.inject.Inject
 
-class AnimalsRepository(private val apiService: AnimalsAPIService) {
+class AnimalsRepository@Inject constructor(private val apiService: AnimalsAPIService) {
     //Login Function
     suspend fun submitLoginDetails(newLogin: LoginRequest): Response<LoginResponse> {
         return apiService.submitLoginDetails(newLogin)
